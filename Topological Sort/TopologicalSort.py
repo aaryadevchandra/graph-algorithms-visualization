@@ -1,6 +1,9 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import pylab
+
+
+
 node_colors_hash={}
 node_colors=[]
 dag = nx.digraph.DiGraph()
@@ -16,9 +19,11 @@ dag.add_nodes_from([1, 2, 3, 4, 5, 6])
 
 dag.add_edges_from([(6, 3), (6, 1), (5, 1), (5, 2),
                       (3, 4),(4, 2)])
+
+
 nodes=list(dag.nodes)
-edges=dict(dag.edges)
-print(edges)  
+edges=dict(dag.edges) 
+
 o=len(nodes)
 
 def draw_graph(graph, node_size):
@@ -40,7 +45,7 @@ def draw_graph(graph, node_size):
     plt.pause(3)
 
 
-def topologicalSortUtil(g, v, visited, stack):
+def topologicalSortfunc(g, v, visited, stack):
         global graph
         global nodes
         change_node_color('gray', nodes[v-1])
@@ -51,10 +56,12 @@ def topologicalSortUtil(g, v, visited, stack):
         for i in graph[v]:
             #print(i)
             if visited[i-1] == False:
-                topologicalSortUtil(g,i, visited, stack)
+                topologicalSortfunc(g,i, visited, stack)
         change_node_color('blue', nodes[v-1])
         # Push current vertex to stack which stores result
         stack.append(v)
+
+
 def topologicalSort(g):
         global nodes
         global o
@@ -62,11 +69,10 @@ def topologicalSort(g):
         visited = [False]*o
         stack = []
  
-        # Call the recursive helper function to store Topological
-        # Sort starting from all vertices one by one
+        # Call the recursive function to store Topological Sort starting from all vertices one by one
         for i in range(1,o+1):
             if visited[i-1] == False:
-                topologicalSortUtil(g,i, visited, stack)
+                topologicalSortfunc(g,i, visited, stack)
  
         # Print contents of the stack
         print(stack[::-1])
