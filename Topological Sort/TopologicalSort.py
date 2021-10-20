@@ -4,14 +4,22 @@ import pylab
 node_colors_hash={}
 node_colors=[]
 dag = nx.digraph.DiGraph()
+graph = { 1 : [],
+          2 : [],
+          3 : [4],
+          4 : [2],
+          5 : [1,2],
+          6 : []
+        } 
 
-dag.add_nodes_from(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I','J','K'])
+dag.add_nodes_from([1, 2, 3, 4, 5, 6])
 
-dag.add_edges_from([('A', 'B'), ('A', 'C'), ('A', 'D'), ('B', 'J'),
-                      ('C', 'F'),('C', 'I'),('D', 'G'), ('E', 'K'),('E','H')])
-
-nodes=(dag.nodes)
-edges=(dag.edges)   
+dag.add_edges_from([(6, 3), (6, 1), (5, 1), (5, 2),
+                      (3, 4),(4, 2)])
+nodes=list(dag.nodes)
+edges=dict(dag.edges)
+print(edges)  
+o=len(nodes)
 
 def draw_graph(graph, node_size):
     global node_colors, node_colors_hash
@@ -32,61 +40,36 @@ def draw_graph(graph, node_size):
     plt.pause(3)
 
 
-def dfs(dag, start, visited, stack):
-       change_node_color('grey',start)
-       if start in visited:
+def topologicalSortUtil(g, v, visited, stack):
+        global graph
+        global nodes
+        change_node_color('gray', nodes[v-1])
+        # Mark the current node as visited.
+        visited[v-1] = True
 
-           # node and all its branches have been visited
-           return stack, visited
-
-
-       if dag.out_degree(start) == 0:
-
-           # if leaf node, push and backtrack
-           stack.append(start)
-           visited.append(start)
-           change_node_color('blue',start)  
-           return stack, visited
-           
-       #traverse all the branches
-       for node in dag.neighbors(start):
-
-           if node in visited:
-
-               continue
-
-           stack, visited = dfs(dag, node, visited, stack)
-
-       #now, push the node if not already visited
-       if start not in visited:
-
-           print("pushing %s"%start)
-
-           stack.append(start)
-
-           visited.append(start)
-
-       return stack, visited
-
-def topological_sort_using_dfs(dag):
-
-       visited = []
-
-       stack=[]
-
-       start_nodes = [i for i in dag.nodes if dag.in_degree(i)==0]
-       
-   #     print(start_nodes)
-
-       for s in start_nodes:
-           change_node_color('gray', s)
-           stack, visited = dfs(dag, s, visited, stack)
-
-       print("Topological sorted:")
-
-       while(len(stack)!=0):
-
-           print(stack.pop(), end=" ")
+        # Recur for all the vertices adjacent to this vertex
+        for i in graph[v]:
+            #print(i)
+            if visited[i-1] == False:
+                topologicalSortUtil(g,i, visited, stack)
+        change_node_color('blue', nodes[v-1])
+        # Push current vertex to stack which stores result
+        stack.append(v)
+def topologicalSort(g):
+        global nodes
+        global o
+        # Mark all the vertices as not visited
+        visited = [False]*o
+        stack = []
+ 
+        # Call the recursive helper function to store Topological
+        # Sort starting from all vertices one by one
+        for i in range(1,o+1):
+            if visited[i-1] == False:
+                topologicalSortUtil(g,i, visited, stack)
+ 
+        # Print contents of the stack
+        print(stack[::-1])
 
 
 def change_node_color(c, node):
@@ -107,8 +90,8 @@ def change_node_color(c, node):
     pylab.draw()
     plt.pause(2)
 
-    
+print(nodes)    
 draw_graph(dag,len(dag.edges))
-topological_sort_using_dfs(dag) 
+topologicalSort(dag)
 plt.pause(30)  
-                            
+                           
