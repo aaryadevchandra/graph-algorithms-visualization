@@ -1,47 +1,41 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import pylab
-
-
-
-
 node_colors_hash={}
 node_colors=[]
-
-
 dag = nx.digraph.DiGraph()
 
-dag.add_nodes_from(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'])
+dag.add_nodes_from(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I','J','K'])
 
-dag.add_edges_from([('A', 'B'), ('A', 'E'), ('B', 'D'), ('E', 'C'),
-                      ('D', 'G'),('C', 'G'),('C', 'I'), ('F', 'I')])
+dag.add_edges_from([('A', 'B'), ('A', 'C'), ('A', 'D'), ('B', 'J'),
+                      ('C', 'F'),('C', 'I'),('D', 'G'), ('E', 'K'),('E','H')])
 
 nodes=(dag.nodes)
-
+edges=(dag.edges)   
 
 def draw_graph(graph, node_size):
     global node_colors, node_colors_hash
     global dag
     global nodes
-
-    node_colors_hash = {x:"yellow" for x in nodes}
+    global edges
+   
+   
+    node_colors_hash = {x:"green" for x in nodes}
 
     for k,v in node_colors_hash.items():
         node_colors.append(v)
-    
-    #nx.set_edge_attributes(dag,'Name', nodes)
-
+   
     pos = nx.shell_layout(dag)
-    nx.draw(dag, pos, with_labels=True,node_size = 600, node_color=node_colors)                        
+    nx.draw(dag, pos, with_labels=True,node_size = 800, node_color=node_colors)                        
     # show graph
     pylab.show
     plt.pause(3)
 
 
 def dfs(dag, start, visited, stack):
-
+       change_node_color('grey',start)
        if start in visited:
-           
+
            # node and all its branches have been visited
            return stack, visited
 
@@ -50,14 +44,13 @@ def dfs(dag, start, visited, stack):
 
            # if leaf node, push and backtrack
            stack.append(start)
-
            visited.append(start)
-
+           change_node_color('blue',start)  
            return stack, visited
-
+           
        #traverse all the branches
        for node in dag.neighbors(start):
-           change_node_color('gray', node)
+
            if node in visited:
 
                continue
@@ -72,7 +65,7 @@ def dfs(dag, start, visited, stack):
            stack.append(start)
 
            visited.append(start)
-       change_node_color('black', start)
+
        return stack, visited
 
 def topological_sort_using_dfs(dag):
@@ -99,6 +92,7 @@ def topological_sort_using_dfs(dag):
 def change_node_color(c, node):
     global node_colors_hash
     global node_colors
+    global edge_colors,edge_colors_hash
     
     node_colors = []
 
@@ -109,12 +103,12 @@ def change_node_color(c, node):
         node_colors.append(v)
     
     pos = nx.shell_layout(dag)
-    nx.draw(dag, pos,node_size = 600, node_color = node_colors)
+    nx.draw(dag, pos,node_size = 800, node_color = node_colors)
     pylab.draw()
     plt.pause(2)
-    
+
     
 draw_graph(dag,len(dag.edges))
 topological_sort_using_dfs(dag) 
-  
+plt.pause(30)  
                             
