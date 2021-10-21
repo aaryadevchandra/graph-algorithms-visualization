@@ -21,7 +21,7 @@
 
 
 <!-- PROJECT LOGO -->
-<br />
+<!-- <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
@@ -42,7 +42,7 @@
     <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
   </p>
 </div>
-
+ -->
 
 
 <!-- TABLE OF CONTENTS -->
@@ -63,11 +63,9 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -80,14 +78,14 @@
 
 An algorithm visualizer is a program that uses graphics  based libraries and modules to simulate annd visualize the entire functioning of a particular algorithm; a graph algorithm visualizer is an algorithm visualizer specifically made for visualizing graph based algorithms.
 
-Here's why:
+<!-- Here's why:
 * The project is made using pygame, networkx and numpy.
 * You shouldn't be doing the same tasks over and over like creating a README from scratch
 * You should implement DRY principles to the rest of your life :smile:
 
 Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
 
-Use the `BLANK_README.md` to get started.
+Use the `BLANK_README.md` to get started. -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
