@@ -74,7 +74,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 An algorithm visualizer is a program that uses graphics  based libraries and modules to simulate annd visualize the entire functioning of a particular algorithm; a graph algorithm visualizer is an algorithm visualizer specifically made for visualizing graph based algorithms.
 
@@ -123,6 +123,7 @@ This project uses Pygame and NetworkX for the graphical components of the projec
    ```sh
    git clone https://github.com/AaryadevChandra/graph-algorithms-visualization.git
    ```
+2. Enter the folder belonging to the visualization you wish to run; and open a command line terminal inside that folder. 
 3. Create a virtual environment before installing the required dependencies (Optional)
    **For Windows**
    ```sh
@@ -150,6 +151,15 @@ This project uses Pygame and NetworkX for the graphical components of the projec
 ## Usage
 
 ### Breadth First Search
+
+For BFS, please open the BFS folder in a text editor/IDE of your choice and ensure that you have the required dependencies. Once this is done, run the `graphics.py` python file. 
+After waiting for a couple seconds, you will be greeted by a pygame window displaying the visualization.
+
+The visualization starts from `Node 0` and shall continue till all the nodes are discovered. 
+
+No user input is required.
+
+<!-- ![caption] -->
 
 
 ### Dijkstra's 
@@ -199,7 +209,7 @@ Project Link: [https://github.com/AaryadevChandra/graph-algorithms-visualization
 
 
 <!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+<!-- ## Acknowledgments
 
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
@@ -212,7 +222,7 @@ Use this space to list resources you find helpful and would like to give credit 
 * [Font Awesome](https://fontawesome.com)
 * [React Icons](https://react-icons.github.io/react-icons/search)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p> -->
 
 
 
