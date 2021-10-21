@@ -78,10 +78,10 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+An algorithm visualizer is a program that uses graphics  based libraries and modules to simulate annd visualize the entire functioning of a particular algorithm; a graph algorithm visualizer is an algorithm visualizer specifically made for visualizing graph based algorithms.
 
 Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
+* The project is made using pygame, networkx and numpy.
 * You shouldn't be doing the same tasks over and over like creating a README from scratch
 * You should implement DRY principles to the rest of your life :smile:
 
@@ -97,14 +97,9 @@ Use the `BLANK_README.md` to get started.
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* [Pygame](https://www.pygame.org/news)
+* [NetworkX](https://networkx.org)
+* [Numpy](https://numpy.org)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -113,29 +108,37 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To run the project go into the local cloned repository on your machine, and go into any one of the folders depending on which visualization you wish to run. 
+Open a text editor/IDE of your choice and enter the same folder belonging to the respective visualization program. 
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+This project uses Pygame and NetworkX for the graphical components of the project and uses numpy for array and adjacency matrix related operations.
 * pip
   ```sh
   pip install numpy
   pip install pygame
+  pip install networkx
   ```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/AaryadevChandra/graph-algorithms-visualization.git
    ```
-3. Install NPM packages
+3. Create a virtual environment before installing the required dependencies. (Optional)
+   **For Windows**
    ```sh
-   npm install
+   py -3 -m venv .venv
+   .venv\scripts\activate
    ```
+   **For MacOS/Linux**
+   ```sh
+   python3 -m venv .venv
+   source .venv/bin/activate
+   ```
+   
 4. Enter your API in `config.js`
    ```js
    const API_KEY = 'ENTER YOUR API';
