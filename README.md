@@ -159,10 +159,12 @@ The visualization starts from `Node 0` and shall continue till all the nodes are
 
 No user input is required.
 
-<!-- ![caption] -->
+![caption](https://media.giphy.com/media/sizpUYi3fSU2njxVnA/giphy.gif)
 
 
 ### Dijkstra's 
+
+![caption](https://media.giphy.com/media/fdQhXtsNqaZsVCiVu5/giphy.gif)
 
 
 ### Topological Sort
