@@ -93,7 +93,7 @@ Use the `BLANK_README.md` to get started. -->
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+This section contains a list of our major frameworks/libraries used to bootstrap our project.
 
 * [Pygame](https://www.pygame.org/news)
 * [NetworkX](https://networkx.org)
@@ -164,7 +164,11 @@ No user input is required.
 
 ### Dijkstra's 
 
+The Dijkstra's algorithm implements single source shortest path algorithm to find the route from any node to any other node. Due to this nature, the user is required to input two valid inputs which are the `start_node` and `end_node` respectively. 
+
 ![caption](https://media.giphy.com/media/fdQhXtsNqaZsVCiVu5/giphy.gif)
+
+Once this is done, the visualization then proceeds to show the actual relaxation of nodes at every iteration along with the visualization for checking the neighbours and adding new paths to the final routes. The visualization also marks discovered nodes as they are discovered. 
 
 
 ### Topological Sort
