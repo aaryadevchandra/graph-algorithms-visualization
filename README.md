@@ -168,7 +168,7 @@ No user input is required.
 
 
 ### Topological Sort
-
+![capption](https://media.giphy.com/media/cwNVxJUwaC131ey1VV/giphy.gif)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
