@@ -114,12 +114,10 @@ Open a text editor/IDE of your choice and enter the same folder belonging to the
 ### Prerequisites
 
 This project uses Pygame and NetworkX for the graphical components of the project and uses numpy for array and adjacency matrix related operations.
-* pip
-  ```sh
-  pip install numpy
-  pip install pygame
-  pip install networkx
-  ```
+* Python 3+
+* Pygame
+* NetworkX
+* Numpy
 
 ### Installation
 
@@ -127,7 +125,7 @@ This project uses Pygame and NetworkX for the graphical components of the projec
    ```sh
    git clone https://github.com/AaryadevChandra/graph-algorithms-visualization.git
    ```
-3. Create a virtual environment before installing the required dependencies. (Optional)
+3. Create a virtual environment before installing the required dependencies (Optional)
    **For Windows**
    ```sh
    py -3 -m venv .venv
@@ -139,9 +137,11 @@ This project uses Pygame and NetworkX for the graphical components of the projec
    source .venv/bin/activate
    ```
    
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+4. Use Pip to install the required dependencies
+   ```sh
+   pip install numpy
+   pip install pygame
+   pip install networkx
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -156,25 +156,6 @@ Use this space to show useful examples of how a project can be used. Additional 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [] Add Additional Templates w/ Examples
-- [] Add "components" document to easily copy & paste sections of the readme
-- [] Multi-language Support
-    - [] Chinese
-    - [] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -206,9 +187,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Your Name - [Aaryadev Chandra](https://www.linkedin.com/in/aaryadevchandra/) - aaryadevc@example.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/AaryadevChandra/graph-algorithms-visualization](https://github.com/AaryadevChandra/graph-algorithms-visualization)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
