@@ -206,6 +206,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
+If you have a suggestion or a feature that you wish us to implement, or simply want to ask something or point something out; we'll be happy to hear from you!
+Contact us on the below given socials.
+
 Your Name - [Aaryadev Chandra](https://www.linkedin.com/in/aaryadevchandra/) - aaryadevc@example.com
 
 Project Link: [https://github.com/AaryadevChandra/graph-algorithms-visualization](https://github.com/AaryadevChandra/graph-algorithms-visualization)
