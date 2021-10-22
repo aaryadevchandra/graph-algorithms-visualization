@@ -172,8 +172,19 @@ Once this is done, the visualization then proceeds to show the actual relaxation
 
 
 ### Topological Sort
-![capption](https://media.giphy.com/media/cwNVxJUwaC131ey1VV/giphy.gif)
+Topological sorting for Directed Acyclic Graph (DAG) is a linear ordering of vertices such that for every directed edge u v, vertex u comes before v in the ordering. Topological Sorting for a graph is not possible if the graph is not a DAG.
 
+In DFS, we print a vertex and then recursively call DFS for its adjacent vertices. In topological sorting, we need to print a vertex before its adjacent vertices. For example, in the given graph, the vertex ‘5’ should be printed before vertex ‘0’, but unlike DFS, the vertex ‘4’ should also be printed before vertex ‘0’. So Topological sorting is different from DFS. For example, a DFS of the shown graph is “5 2 3 1 0 4”, but it is not a topological sorting.
+
+![capption](https://media.giphy.com/media/7o51GW5t6V7NoQe3ge/giphy.gif)
+
+In the visualization above we are traversing through the graph to get the topological order of the graph.
+The color codes are as follows: -
+Green= Unvisited
+Grey= Currently visiting/traversing
+Blue=Visited
+
+Starting from node 0, we check to see if has any outdegree which it doesn’t, and hence its directly pushed to stack. Same is the case for node 1. But in case of node 2, it has an edge directed towards node 3 which is unvisited and so we will visit node 3 which has an edge directed towards node 1 which is already visited. Now, node 3 is added to the stack followed by node 2. This repeats for all the nodes. Once all the nodes are visited, we print the stack in reverse. This is the topological order for the graph.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
