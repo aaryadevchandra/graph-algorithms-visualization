@@ -79,14 +79,18 @@ def connectNodes(surface, pygameNodes, graph, node_to_update, cost_to_update):
             textsurface = nodeFont.render(f"{pygameNodes[i].nodeNumber}", False, (255, 0, 0))
             surface.blit(textsurface, (pygameNodes[i].x - 10, pygameNodes[i].y - 20))
             if i == node_to_update:
-                textsurface = nodeFont.render(f"{cost_to_update}", False, (255, 0, 0))
+                if cost_to_update == maxsize:
+                    textsurface = nodeFont.render(f"inf", False, (255, 0, 0))
+
+                else:    
+                    textsurface = nodeFont.render(f"{cost_to_update}", False, (255, 0, 0))
                 surface.blit(textsurface, (pygameNodes[i].x - 10, pygameNodes[i].y - 70))
 
     return pygameNodes
     
 
 # important function that renders all the required surfaces of pygame along with also updating the required surfaces
-def update_graph(surface, node_cost_tracker, iteration, pygameNodes, graph, discovered, maintain_red, node_cost_tracker_iterator):
+def update_graph(surface, node_cost_tracker, iteration, pygameNodes, graph, final_iteration, maintain_red, node_cost_tracker_iterator):
     
     # each iteration has to be started again from a blank canvas hence filling screen with black
     surface.fill((0, 0, 0))
@@ -99,16 +103,20 @@ def update_graph(surface, node_cost_tracker, iteration, pygameNodes, graph, disc
     for i in range(len(pygameNodes)):
         pygame.time.wait(2000)
         # draws green line with a 2 second delay to simulate checking neighbours of a particular node
-        if iteration.nodeNumber != pygameNodes[i].nodeNumber and graph[iteration.nodeNumber][pygameNodes[i].nodeNumber] > 0:
-            pygame.draw.line(surface, (0, 255, 0), (iteration.x, iteration.y), (pygameNodes[i].x, pygameNodes[i].y), 3)
+        if final_iteration == -1:
+            if iteration.nodeNumber != pygameNodes[i].nodeNumber and graph[iteration.nodeNumber][pygameNodes[i].nodeNumber] > 0:
+                pygame.draw.line(surface, (0, 255, 0), (iteration.x, iteration.y), (pygameNodes[i].x, pygameNodes[i].y), 3)
             
-            # maintain_red is a list of nodes that have been discovered and hence their connecting lines have to be rendered red
-            # rendering red lines for all discovered pairs of nodes
-            for i in range(len(maintain_red)):
-                pygame.draw.line(surface, (255, 0, 0), (maintain_red[i][0].x, maintain_red[i][0].y), (maintain_red[i][1].x, maintain_red[i][1].y), 3)
-            
-            # updating the screen at every iteration of green line drawn, so all green lines are not rendered together
-            pygame.display.update()
+        # maintain_red is a list of nodes that have been discovered and hence their connecting lines have to be rendered red
+        # rendering red lines for all discovered pairs of nodes
+        for i in range(len(maintain_red)):
+            pygame.draw.line(surface, (255, 0, 0), (maintain_red[i][0].x, maintain_red[i][0].y), (maintain_red[i][1].x, maintain_red[i][1].y), 3)
+        
+        # updating the screen at every iteration of green line drawn, so all green lines are not rendered together
+        pygame.display.update()
+
+    if final_iteration == 1:
+        pygame.time.wait(5000)
 
     # maintain_red is a list of lists of pairs of nodes whose edge has to be rendered red
     red = []
@@ -136,7 +144,7 @@ def main():
     initNodesFlag = 0
 
     # adjacency matrix
-    graph = np.array([[0, 0, 0, 1, 2], 
+    graph = np.array([[0, 0, 0, 4, 2], 
                     [0, 0, 1, 3, 3], 
                     [0, 1, 0, 6, 0], 
                     [1, 3, 6, 0, 0], 
@@ -171,6 +179,8 @@ def main():
 
     node_cost_tracker_iterator = 0
 
+    final_iteration = -1
+
     iteration = pygameNodes_copy.pop(0)
     while iteration.nodeNumber != end_node:
 
@@ -186,8 +196,12 @@ def main():
             initNodesFlag = 1
             connectNodes(surface, pygameNodes, graph, -1, -1)
         
-        update_graph(surface, node_cost_tracker, iteration, pygameNodes, graph, discovered, maintain_red, node_cost_tracker_iterator)
+        update_graph(surface, node_cost_tracker, iteration, pygameNodes, graph, final_iteration, maintain_red, node_cost_tracker_iterator)
         iteration = pygameNodes_copy.pop(0)
+
+        if iteration.nodeNumber == end_node:
+            update_graph(surface, node_cost_tracker, iteration, pygameNodes, graph, 1, maintain_red, node_cost_tracker_iterator)
+
 
         node_cost_tracker_iterator += 1
         
